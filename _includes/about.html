@@ -1,80 +1,86 @@
+{% if site.style == 'dark' %}
+  {% assign icon_color = "#ffffff" %}
+{% else %}
+  {% assign icon_color = "#24292e" %}
+{% endif %}
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+{% assign content = page.content %}
 
+{% assign posts_total = site.posts | size %}
+
+{% assign user = site.github.owner %}
+
+{% if page.path contains '_posts' %}
+  {% assign page_title = page.title %}
+  {% assign meta_description = page.content | strip_html | strip_newlines | xml_escape | truncate: 300 %}
+{% else %}
+  {% assign page_title = user.name %}
+  {% assign meta_description = user.bio | strip_html | strip_newlines | xml_escape | truncate: 300 %}
+{% endif %}
+
+<!doctype html>
+<html class="min-height-full">
   <head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
-
-
-  <!-- CSS -->
-
-  <!-- Icons -->
-
-</head>
-
-
-  <body>
+    <meta charset="utf-8">
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ meta_description }}" />
+    <meta property="og:title" content="{{ user.name }}" />
+    <meta property="og:image" content="{{ user.avatar_url }}" />
+    <meta property="og:description" content="{{ meta_description }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="{{ "/assets/styles.css" | relative_url }}" rel="stylesheet" type="text/css">
+  </head>
+  <body class="bg-white min-height-full" {% if site.style == 'dark' %}style="background-color: #2f363d !important"{% endif %}>
 
     <div class="content container">
       <div class="posts">
   
   <div class="post">
-<p style="font-size:0.8vw;">This is Kaishen Wang (Chinese: <span lang="zh">王凯申</span>/ <span lang="zh">法号桑菜</span>). I come from Nanjing, China. 
-<p style="font-size:0.8vw;">I am a very boring person despite I have a wide range of interests including body building, MMA, singing, king of glory (<span lang="zh">王者荣耀</span>), reading and some random things (but no web developement, which you can tell)... 
+
+<p>This is Kaishen Wang (Chinese: <span lang="zh">王凯申</span>/ <span lang="zh">法号桑菜</span>). I come from Nanjing, China. 
+<p>I am a very boring person despite I have a wide range of interests including body building, MMA, singing, king of glory (<span lang="zh">王者荣耀</span>), reading and some random things (but no web developement, which you can tell)... 
     I wrote the lyrics of a song, which was composed by my friend. You can play it <a href="https://y.music.163.com/m/song?id=1819125039&uct=nP//6LDN+SfHaiFC41DjGA%3D%3D&app_version=8.6.51">here</a>. 
 </p>
 <p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1819125039&auto=0&height=66"></iframe>
 </p>
 
-<p style="font-size:0.8vw;>The initial motivation/purpose of this peronsal website is to save duplicate copies of my blogs & thoughts on my <a href="https://www.zhihu.com/people/wang-kaishen">Zhihu</a> (Chinese Quora).</p>
+<p>The initial motivation/purpose of this peronsal website is to save duplicate copies of my blogs & thoughts on my <a href="https://www.zhihu.com/people/wang-kaishen">Zhihu</a> (Chinese Quora).</p>
 
 
 <h2 id="working" align="left">Working Experience</h2>
 <ul>
-  <li align="left"  style="font-size:0.8vw;">Low Latency Quantitative Developer, <a href="https://www.citadelsecurities.com/">Citadel Securities</a></li>
-  <li align="left"  style="font-size:0.8vw;">Software Developer Intern, Microsoft</li>
-  <li align="left"  style="font-size:0.8vw;">Software Developer Intern, Google</li>
+  <li align="left">Low Latency Quantitative Developer, <a href="https://www.citadelsecurities.com/">Citadel Securities</a></li>
+  <li align="left">Software Developer Intern, Microsoft</li>
+  <li align="left">Software Developer Intern, Google</li>
 </ul> 
 
 <h2 id="education" align="left">Education</h2>
 <ul>
-  <li align="left"  style="font-size:0.8vw;">M.S. Computer Science, University of Illinois at Urbana-Champaign, IL, 2019</li>
-  <li align="left"  style="font-size:0.8vw;">B.S. Computer Engineering, University of Illinois at Urbana-Champaign, IL, 2017</li>
+  <li align="left">M.S. Computer Science, University of Illinois at Urbana-Champaign, IL, 2019</li>
+  <li align="left">B.S. Computer Engineering, University of Illinois at Urbana-Champaign, IL, 2017</li>
 </ul>    
 
  
 <h2 id="education-related" align="left">Achievements In School</h2>
 <ul>
-  <li align="left"  style="font-size:0.8vw;">Bronze Tablet (top 3% GPA) during undergraduate study</li>
-  <li align="left"  style="font-size:0.8vw;">Contributor to <a href="https://github.com/zmap/zdns"> zdns</a> and <a href="https://github.com/zmap/zcrypto"> zcrypto</a></li>
-  <li align="left"  style="font-size:0.8vw;"><a href="https://github.com/kaishenwang/Concepts/blob/master/MasterThesis.pdf">Master Thesis</a></li>
+  <li align="left">Bronze Tablet (top 3% GPA) during undergraduate study</li>
+  <li align="left">Contributor to <a href="https://github.com/zmap/zdns"> zdns</a> and <a href="https://github.com/zmap/zcrypto"> zcrypto</a></li>
+  <li align="left"><a href="https://github.com/kaishenwang/Concepts/blob/master/MasterThesis.pdf">Master Thesis</a></li>
 </ul> 
 
 <h2 id="account" align="left">Social Media Accounts</h2>
 <ul>
-  <li align="left"  style="font-size:0.8vw;"><a href="https://www.instagram.com/kaishenwang/">Instagram</a></li>
-  <li align="left"  style="font-size:0.8vw;"><a href="https://www.linkedin.com/in/kaishen-wang-80b1a879/">LinkedIn</a></li>
-  <li align="left"  style="font-size:0.8vw;"><a href="https://www.zhihu.com/people/wang-kaishen">Zhihu</a></li>
+  <li align="left"><a href="https://www.instagram.com/kaishenwang/">Instagram</a></li>
+  <li align="left"><a href="https://www.linkedin.com/in/kaishen-wang-80b1a879/">LinkedIn</a></li>
+  <li align="left"><a href="https://www.zhihu.com/people/wang-kaishen">Zhihu</a></li>
 </ul> 
+
   </div>
   
 </div>
 
-<!-- <div class="pagination">
-  
-    <a class="pagination-item older" href="page2">Older</a>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
-</div> -->
+
     </div>
 
   </body>
