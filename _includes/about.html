@@ -1,41 +1,3 @@
-{% if site.style == 'dark' %}
-  {% assign icon_color = "#ffffff" %}
-{% else %}
-  {% assign icon_color = "#24292e" %}
-{% endif %}
-
-{% assign content = page.content %}
-
-{% assign posts_total = site.posts | size %}
-
-{% assign user = site.github.owner %}
-
-{% if page.path contains '_posts' %}
-  {% assign page_title = page.title %}
-  {% assign meta_description = page.content | strip_html | strip_newlines | xml_escape | truncate: 300 %}
-{% else %}
-  {% assign page_title = user.name %}
-  {% assign meta_description = user.bio | strip_html | strip_newlines | xml_escape | truncate: 300 %}
-{% endif %}
-
-<!doctype html>
-<html class="min-height-full">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ page_title }}</title>
-    <meta name="description" content="{{ meta_description }}" />
-    <meta property="og:title" content="{{ user.name }}" />
-    <meta property="og:image" content="{{ user.avatar_url }}" />
-    <meta property="og:description" content="{{ meta_description }}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="{{ "/assets/styles.css" | relative_url }}" rel="stylesheet" type="text/css">
-  </head>
-  <body class="bg-white min-height-full" {% if site.style == 'dark' %}style="background-color: #2f363d !important"{% endif %}>
-
-    <div class="content container">
-      <div class="posts">
-  
-  <div class="post">
 
 <p>This is Kaishen Wang (Chinese: <span lang="zh">王凯申</span>/ <span lang="zh">法号桑菜</span>). I come from Nanjing, China. 
 <p>I am a very boring person despite I have a wide range of interests including body building, MMA, singing, king of glory (<span lang="zh">王者荣耀</span>), reading and some random things (but no web developement, which you can tell)... 
@@ -76,20 +38,11 @@
   <li align="left"><a href="https://www.zhihu.com/people/wang-kaishen">Zhihu</a></li>
 </ul> 
 
-  </div>
-  
-</div>
+<h2 id="Articles" align="left">Articles & Thoughts</h2>
+<ul>
+  <li align="left"><a href="src/thoughts.html">Random Thoughts</a></li>
+  <li align="left"><a href="src/tech_posts.html">Tech Posts</a></li>
+  <li align="left"><a href="src/random_posts.html">Random Posts</a></li>
+</ul> 
 
 
-    </div>
-
-  </body>
-</html>
-
-
-<pre>
-
-
-
-
-</pre>
